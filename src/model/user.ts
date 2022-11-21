@@ -1,5 +1,5 @@
 import {Schema,model} from 'mongoose'
-interface IUser {
+export interface IUser {
     userName ?:string,
     password ? :string,
     imageU?: string;

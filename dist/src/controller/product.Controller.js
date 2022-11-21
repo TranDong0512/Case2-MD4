@@ -11,7 +11,7 @@ class ProductController {
             });
         };
         this.showProduct = async (req, res) => {
-            let products = await products_1.Product.find().populate('category', 'nameCategory');
+            let products = await products_1.Product.find().populate('category', 'nameCategory').populate('userCreate');
             res.json({
                 mess: "hiện thị ds products",
                 products: products

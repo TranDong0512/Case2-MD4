@@ -23,7 +23,7 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-interface IUser {
+export interface IUser {
     userName?: string;
     password?: string;
     imageU?: string;

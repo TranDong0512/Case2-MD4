@@ -24,6 +24,7 @@
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
 import { ICategory } from "./category";
+import { IUser } from "./user";
 export interface IProduct {
     nameProduct?: string;
     price?: number;
@@ -32,6 +33,7 @@ export interface IProduct {
     address?: string;
     description?: string;
     imageP?: string;
+    userCreate?: IUser;
 }
 declare const Product: import("mongoose").Model<IProduct, {}, {}, {}, any>;
 export { Product };

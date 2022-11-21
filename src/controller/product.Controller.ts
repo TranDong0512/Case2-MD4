@@ -10,7 +10,7 @@ class ProductController {
         })
     }
     showProduct = async (req:Request,res:Response)=>{
-        let products = await Product.find().populate('category','nameCategory')
+        let products = await Product.find().populate('category','nameCategory').populate('userCreate')
         res.json({
             mess:"hiện thị ds products",
             products : products

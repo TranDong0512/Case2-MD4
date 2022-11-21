@@ -12,7 +12,11 @@ const ProductSchema = new mongoose_1.Schema({
     status: Boolean,
     address: String,
     description: String,
-    imageP: String
+    imageP: String,
+    userCreate: {
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: "user"
+    }
 });
 const Product = (0, mongoose_1.model)('product', ProductSchema);
 exports.Product = Product;
