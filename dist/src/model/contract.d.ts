@@ -23,13 +23,12 @@
 /// <reference types="mongoose/types/virtuals" />
 /// <reference types="mongoose" />
 /// <reference types="mongoose/types/inferschematype" />
-export interface IUser {
-    userName?: string;
-    password?: string;
-    imageU?: string;
-    fullName?: string;
-    phoneNumber?: number;
-    email?: string;
+import { IProduct } from "./products";
+import { IUser } from "./user";
+export interface IContract {
+    product?: IProduct;
+    userBuy?: IUser;
+    time?: string;
 }
-declare const User: import("mongoose").Model<IUser, {}, {}, {}, any>;
-export { User };
+declare const Contract: import("mongoose").Model<IContract, {}, {}, {}, any>;
+export { Contract };
