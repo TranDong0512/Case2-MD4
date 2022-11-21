@@ -1,5 +1,6 @@
 import {Schema,model} from 'mongoose'
 import {ICategory} from "./category";
+import {IUser} from "./user";
 
 export interface IProduct {
     nameProduct ?:string,
@@ -8,7 +9,8 @@ export interface IProduct {
     status ?: boolean,
     address ?: string,
     description ?:string,
-    imageP?: string
+    imageP?: string,
+    userCreate ?: IUser
 
 }
 const ProductSchema = new Schema<IProduct>({
@@ -21,7 +23,11 @@ const ProductSchema = new Schema<IProduct>({
     status : Boolean,
     address : String,
     description:String,
-    imageP: String
+    imageP: String,
+    userCreate : {
+       type:Schema.Types.ObjectId,
+        ref:"user"
+    }
 })
 
 const Product = model<IProduct>('product',ProductSchema)
