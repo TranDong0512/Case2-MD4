@@ -39,7 +39,7 @@ class UserController {
             let compare = await bcrypt.compare(user.password, userFind.password)
             if (!compare) {
                 res.json({
-                    mess: 'Wrong Password'
+                    mess: 'Wrong Password',
                 })
             } else {
                 let payload = {userName: userFind.userName}
