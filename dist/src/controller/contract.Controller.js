@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const contract_1 = require("../model/contract");
+const products_1 = require("../model/products");
 class ContractController {
     constructor() {
         this.saveContract = async (req, res) => {
@@ -15,6 +16,15 @@ class ContractController {
             res.json({
                 mess: "hiện thị ds contracts",
                 contracts: contracts
+            });
+        };
+        this.showTotalPrice = async (req, res) => {
+            let idP = req.params.id;
+            let numberOfDays = req.body.numberOfDays;
+            let priceP = await products_1.Product.findOne({ _id: idP }, 'price');
+            res.json({
+                mess: "hiện thị totalPrice",
+                totalPrice: priceP.price * numberOfDays,
             });
         };
     }
