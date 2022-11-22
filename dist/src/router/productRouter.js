@@ -11,7 +11,7 @@ exports.productRouter.get('/', product_Controller_1.default.showProduct);
 exports.productRouter.post('/', product_Controller_1.default.saveProduct);
 exports.productRouter.delete('/:id', product_Controller_1.default.removeProduct);
 exports.productRouter.put('/:id', product_Controller_1.default.editProduct);
-exports.productRouter.get('/:id', product_Controller_1.default.showDetail);
-exports.productRouter.post('/findByName', product_Controller_1.default.findByName);
+exports.productRouter.get('/detail/:id', product_Controller_1.default.showDetail);
+exports.productRouter.get('/findByName', product_Controller_1.default.findByName);
 exports.productRouter.get('/findByCategory/:id', product_Controller_1.default.findByCategory);
 //# sourceMappingURL=productRouter.js.map

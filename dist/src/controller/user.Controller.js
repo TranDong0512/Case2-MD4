@@ -56,6 +56,20 @@ class UserController {
             }
         };
         this.showProfile = async (req, res) => {
+            let idUser = req.params.id;
+            let user = await user_1.User.findOne({ _id: idUser });
+            res.json({
+                message: "showProfile",
+                user: user
+            });
+        };
+        this.editProfile = async (req, res) => {
+            const idEdit = req.params.id;
+            const newProfile = req.body;
+            await user_1.User.updateOne({ _id: idEdit }, {
+                $set: newProfile
+            });
+            res.json({ message: "edit", newProfile: newProfile });
         };
     }
 }
