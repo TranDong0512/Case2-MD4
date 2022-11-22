@@ -50,7 +50,7 @@ class ProductController {
     }
 
     findByName = async (req: Request, res: Response) => {
-        let nameFind = req.body.name
+        let nameFind = req.query.name;
         let product = await Product.findOne({nameProduct: nameFind})
         res.json({
             message: "Tim duoc product theo ten",

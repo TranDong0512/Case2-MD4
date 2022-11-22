@@ -8,14 +8,14 @@ class ImageProductController {
         res.json({
             mess : "tạo ảnh thành công"
         })
-
     }
+
     showImage = async (req:Request,res:Response)=>{
         const imageProduct = await ImageProduct.find().populate('product');
         res.json({
             imageProduct : imageProduct
         })
-
     }
+
 }
 export default new ImageProductController()
