@@ -6,6 +6,7 @@ export interface IContract {
     product? : IProduct,
     userBuy?: IUser,
     totalPrice? : number
+    time?: string
 }
 
 const contractSchema = new Schema<IContract>({
@@ -17,7 +18,8 @@ const contractSchema = new Schema<IContract>({
         type: Schema.Types.ObjectId,
         ref:"user"
     },
-    totalPrice: Number
+    totalPrice: Number,
+    time: String
 })
 
 const Contract = model<IContract>('contract', contractSchema);

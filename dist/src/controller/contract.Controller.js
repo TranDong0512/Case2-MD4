@@ -5,6 +5,10 @@ const products_1 = require("../model/products");
 class ContractController {
     constructor() {
         this.saveContract = async (req, res) => {
+            let idP = req.params.id;
+            await products_1.Product.updateOne({ _id: idP }, {
+                $set: { status: true }
+            });
             let newContract = req.body;
             await contract_1.Contract.create(newContract);
             res.json({
@@ -12,7 +16,8 @@ class ContractController {
             });
         };
         this.showAllContract = async (req, res) => {
-            let contracts = await contract_1.Contract.find().populate('product').populate('userBuy');
+            let idUser = req.params.id;
+            let contracts = await contract_1.Contract.find({ userBuy: idUser }).populate('product').populate('userBuy');
             res.json({
                 mess: "hiện thị ds contracts",
                 contracts: contracts

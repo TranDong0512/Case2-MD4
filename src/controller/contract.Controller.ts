@@ -5,6 +5,10 @@ import {Product} from "../model/products";
 
 class ContractController {
     saveContract = async (req: Request, res: Response) => {
+        let idP = req.params.id
+        await Product.updateOne({_id: idP}, {
+            $set:{status: true}
+        })
         let newContract = req.body
         await Contract.create(newContract)
         res.json({
@@ -13,7 +17,8 @@ class ContractController {
     }
 
     showAllContract = async (req:Request,res:Response)=>{
-        let contracts = await Contract.find().populate('product').populate('userBuy')
+        let idUser = req.params.id
+        let contracts = await Contract.find({userBuy: idUser}).populate('product').populate('userBuy')
         res.json({
             mess:"hiện thị ds contracts",
             contracts : contracts
