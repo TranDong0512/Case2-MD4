@@ -55,6 +55,8 @@ class UserController {
                 }
             }
         };
+        this.showProfile = async (req, res) => {
+        };
     }
 }
 exports.default = new UserController();

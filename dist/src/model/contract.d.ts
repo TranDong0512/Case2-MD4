@@ -28,7 +28,8 @@ import { IUser } from "./user";
 export interface IContract {
     product?: IProduct;
     userBuy?: IUser;
-    time?: string;
+    numberOfDays?: number;
+    totalPrice?: number;
 }
 declare const Contract: import("mongoose").Model<IContract, {}, {}, {}, any>;
 export { Contract };
