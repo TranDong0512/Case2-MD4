@@ -26,6 +26,7 @@ class UserController {
             })
         }
     }
+
     login = async (req: Request, res: Response, check) => {
         const user = req.body
         const userFind = await User.findOne({
@@ -49,6 +50,10 @@ class UserController {
                 return res.json({token: token})
             }
         }
+    }
+
+    showProfile = async (req: Request, res: Response) => {
+
     }
 }
 
