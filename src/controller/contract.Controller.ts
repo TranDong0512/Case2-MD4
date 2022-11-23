@@ -6,6 +6,7 @@ import {Product} from "../model/products";
 class ContractController {
     saveContract = async (req: Request, res: Response) => {
         let idP = req.params.id
+        let userCreate = await Product.findOne({_id: idP}, 'userCreate')
         await Product.updateOne({_id: idP}, {
             $set:{status: true}
         })

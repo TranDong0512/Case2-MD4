@@ -6,6 +6,7 @@ class ContractController {
     constructor() {
         this.saveContract = async (req, res) => {
             let idP = req.params.id;
+            let userCreate = await products_1.Product.findOne({ _id: idP }, 'userCreate');
             await products_1.Product.updateOne({ _id: idP }, {
                 $set: { status: true }
             });
