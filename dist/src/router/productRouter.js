@@ -13,5 +13,6 @@ exports.productRouter.delete('/:id', product_Controller_1.default.removeProduct)
 exports.productRouter.put('/:id', product_Controller_1.default.editProduct);
 exports.productRouter.get('/detail/:id', product_Controller_1.default.showDetail);
 exports.productRouter.get('/findProduct', product_Controller_1.default.findProduct);
+exports.productRouter.get('/findProductByUser/:id', product_Controller_1.default.findProductByIdUser);
 exports.productRouter.get('/top5Price', product_Controller_1.default.findTop5ByPrice);
 //# sourceMappingURL=productRouter.js.map

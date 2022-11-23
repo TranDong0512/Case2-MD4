@@ -49,24 +49,6 @@ class ProductController {
         })
     }
 
-    findByName = async (req: Request, res: Response) => {
-        let nameFind = req.query.name;
-        let products = await Product.find({nameProduct: new RegExp(req.body.name,'i')})
-        res.json({
-            message: "Tim duoc product theo ten",
-            products: products
-        })
-    }
-
-    findByCategory = async (req: Request, res: Response) => {
-        let idCFind = req.params.id;
-        let products = await Product.find({category: idCFind})
-        res.json({
-            mess: "Tim duoc product theo loai",
-            products: products
-        })
-    }
-
     findProduct = async (req: Request, res: Response) => {
         let idCFind = req.query.id;
         let namePFind = req.query.name;
@@ -88,6 +70,15 @@ class ProductController {
 
     findTop5ByPrice = async (req: Request, res: Response) => {
         let products = await Product.find({}, null,{ sort: { 'price': 'desc' },limit: 5})
+        res.json({
+            mess: "thanh cong",
+            products: products
+        })
+    }
+
+    findProductByIdUser = async (req: Request, res: Response) => {
+        let idUser = req.params.id
+        let products = await Product.find({userCreate: idUser})
         res.json({
             mess: "thanh cong",
             products: products
