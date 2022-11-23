@@ -11,7 +11,8 @@ const contractSchema = new mongoose_1.Schema({
         type: mongoose_1.Schema.Types.ObjectId,
         ref: "user"
     },
-    totalPrice: Number
+    totalPrice: Number,
+    time: String
 });
 const Contract = (0, mongoose_1.model)('contract', contractSchema);
 exports.Contract = Contract;

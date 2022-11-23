@@ -67,12 +67,21 @@ class ProductController {
         })
     }
 
-    findByNameAndCategory = async (req: Request, res: Response) => {
-        let idCFind = req.params.id;
-        let namePFind = req.body.name;
-        let products = await Product.find({nameProduct: namePFind, category: idCFind})
+    findProduct = async (req: Request, res: Response) => {
+        let idCFind = req.query.id;
+        let namePFind = req.query.name;
+        let products
+        if (idCFind && namePFind) {
+            products = await Product.find({nameProduct: namePFind, category: idCFind})
+        }
+        if (idCFind && !namePFind) {
+            products = await Product.find({category: idCFind})
+        }
+        if (!idCFind && namePFind) {
+            products = await Product.find({nameProduct: namePFind})
+        }
         res.json({
-            mess: "tim theo ten va loai",
+            mess: "thanh cong",
             products: products
         })
     }

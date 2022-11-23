@@ -29,6 +29,7 @@ export interface IContract {
     product?: IProduct;
     userBuy?: IUser;
     totalPrice?: number;
+    time?: string;
 }
 declare const Contract: import("mongoose").Model<IContract, {}, {}, {}, any>;
 export { Contract };
